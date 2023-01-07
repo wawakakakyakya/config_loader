@@ -38,6 +38,13 @@ func main() {
 		fmt.Println(err.Error())
 	}
 	fmt.Println(testJson)
+	testJson.AAA = "111"
+	testJson.BBB = "222"
+	err = json.Write("writeTest.json", &testJson)
+	if err != nil {
+		fmt.Println("json Write Error occurred")
+		fmt.Println(err.Error())
+	}
 
 	lines, err := csv.Load("sample.csv", false)
 	if err != nil {
